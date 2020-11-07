@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bd\**" />
+    <EmbeddedResource Remove="bd\**" />
+    <None Remove="bd\**" />
+    <Page Remove="bd\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="PhoneNumbers.mdf" />
     <None Remove="PhoneNumbers_log.ldf" />
   </ItemGroup>

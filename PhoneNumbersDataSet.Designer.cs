@@ -782,8 +782,9 @@ SELECT Id, Phonenum, Subscriber FROM PhoneNumbers WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\bd\\PhoneNumbe" +
-                "rs.mdf;Integrated Security=True;Connect Timeout=30";
+            this._connection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Anul 3\\Medii de programar" +
+                "e si dezvoltare\\bd\\PhoneNumbers.mdf\";Integrated Security=True;Connect Timeout=30" +
+                "";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

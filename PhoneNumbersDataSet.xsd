@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\bd\PhoneNumbers.mdf;Integrated Security=True;Connect Timeout=30" IsAppSettingsProperty="false" Modifier="Assembly" Name="PhoneNumbersConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;D:\Anul 3\Medii de programare si dezvoltare\bd\PhoneNumbers.mdf&quot;;Integrated Security=True;Connect Timeout=30" IsAppSettingsProperty="false" Modifier="Assembly" Name="PhoneNumbersConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PhoneNumbersTableAdapter" GeneratorDataComponentClassName="PhoneNumbersTableAdapter" Name="PhoneNumbers" UserDataComponentName="PhoneNumbersTableAdapter">
