@@ -37,6 +37,11 @@ namespace Coroian_Daniel_Lab5
         PhoneNumbersDataSetTableAdapters.PhoneNumbersTableAdapter tblPhoneNumbersAdapter = new PhoneNumbersDataSetTableAdapters.PhoneNumbersTableAdapter();
         Binding txtPhoneNumberBinding = new Binding();
         Binding txtSubscriberBinding = new Binding();
+      
+        //Pt tema:
+        Binding txtContractValueBinding = new Binding();
+        Binding txtContractDateBinding = new Binding();
+        //pana aici
 
 
         public MainWindow()
@@ -49,6 +54,13 @@ namespace Coroian_Daniel_Lab5
             txtPhoneNumber.SetBinding(TextBox.TextProperty, txtPhoneNumberBinding);
             txtSubscriber.SetBinding(TextBox.TextProperty, txtSubscriberBinding);
 
+
+            //Pt tema:
+            txtContractDateBinding.Path = new PropertyPath("ContractDate");
+            txtContractValueBinding.Path = new PropertyPath("ContractVal");
+            txtContractDate.SetBinding(TextBox.TextProperty, txtContractDateBinding);
+            txtContractVal.SetBinding(TextBox.TextProperty, txtContractValueBinding);
+            //pana aici
         }
 
         private void lstPhonesLoad()
@@ -96,18 +108,40 @@ namespace Coroian_Daniel_Lab5
             btnNext.IsEnabled = false;
             txtPhoneNumber.IsEnabled = true;
             txtSubscriber.IsEnabled = true;
+
+            //Pt tema:
+            txtContractVal.IsEnabled = true;
+            txtContractDate.IsEnabled = true;
+            //pana aici 
+
             BindingOperations.ClearBinding(txtPhoneNumber, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtSubscriber, TextBox.TextProperty);
             txtPhoneNumber.Text = "";
             txtSubscriber.Text = "";
+
+            //Pt tema:
+            BindingOperations.ClearBinding(txtContractVal, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtContractDate, TextBox.TextProperty);
+            txtContractVal.Text = "";
+            txtContractDate.Text = "";
+            //pana aici
+
             Keyboard.Focus(txtPhoneNumber);
         }
+
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             action = ActionState.Edit;
             string tempPhonenum = txtPhoneNumber.Text.ToString();
             string tempSubscriber = txtSubscriber.Text.ToString();
+
+            //Pt tema:
+            string tempContractVal = txtContractVal.Text.ToString();
+            string tempContractDate = txtContractDate.Text.ToString();
+            //pana aici
+
+
             btnNew.IsEnabled = false;
             btnEdit.IsEnabled = false;
             btnDelete.IsEnabled = false;
@@ -118,10 +152,28 @@ namespace Coroian_Daniel_Lab5
             btnNext.IsEnabled = false;
             txtPhoneNumber.IsEnabled = true;
             txtSubscriber.IsEnabled = true;
+
+            //Pt tema:
+            txtContractVal.IsEnabled = true;
+            txtContractDate.IsEnabled = true;
+            //pana aici
+
             BindingOperations.ClearBinding(txtPhoneNumber, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtSubscriber, TextBox.TextProperty);
+
+            //Pt  tema:
+            BindingOperations.ClearBinding(txtContractVal, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtContractDate, TextBox.TextProperty);
+            //pana aici
+
             txtPhoneNumber.Text = tempPhonenum;
             txtSubscriber.Text = tempSubscriber;
+
+            //Pt tema:
+            txtContractVal.Text = tempContractVal;
+            txtContractDate.Text = tempContractDate;
+            //pana aici
+
             Keyboard.Focus(txtPhoneNumber);
         }
 
@@ -130,6 +182,12 @@ namespace Coroian_Daniel_Lab5
             action = ActionState.Delete;
             string tempPhonenum = txtPhoneNumber.Text.ToString();
             string tempSubscriber = txtSubscriber.Text.ToString();
+
+            //Pt tema:
+            string tempContractVal = txtContractVal.Text.ToString();
+            string tempContractDate = txtContractDate.Text.ToString();
+            //pana aici
+
             btnNew.IsEnabled = false;
             btnEdit.IsEnabled = false;
             btnDelete.IsEnabled = false;
@@ -140,8 +198,20 @@ namespace Coroian_Daniel_Lab5
             btnNext.IsEnabled = false;
             BindingOperations.ClearBinding(txtPhoneNumber, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtSubscriber, TextBox.TextProperty);
+
+            //Pt tema:
+            BindingOperations.ClearBinding(txtContractVal, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtContractDate, TextBox.TextProperty);
+            //pama aici
+
             txtPhoneNumber.Text = tempPhonenum;
             txtSubscriber.Text = tempSubscriber;
+
+            //Pt tema:
+            txtContractVal.Text = tempContractVal;
+            txtContractDate.Text = tempContractDate;
+            //pana aici
+
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -156,8 +226,19 @@ namespace Coroian_Daniel_Lab5
             btnNext.IsEnabled = true;
             txtPhoneNumber.IsEnabled = false;
             txtSubscriber.IsEnabled = false;
+
+            //Pt tema:
+            txtContractVal.IsEnabled = false;
+            txtContractDate.IsEnabled = false;
+            //pana aici
+
             txtPhoneNumber.SetBinding(TextBox.TextProperty, txtPhoneNumberBinding);
             txtSubscriber.SetBinding(TextBox.TextProperty, txtSubscriberBinding);
+
+            //Pt tema:
+            txtContractVal.SetBinding(TextBox.TextProperty, txtContractValueBinding);
+            txtContractDate.SetBinding(TextBox.TextProperty, txtContractDateBinding);
+            //pana aici
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -171,6 +252,12 @@ namespace Coroian_Daniel_Lab5
                     newRow.BeginEdit();
                     newRow["Phonenum"] = txtPhoneNumber.Text.Trim();
                     newRow["Subscriber"] = txtSubscriber.Text.Trim();
+                    
+                    //Pt tema:
+                    newRow["Contract_Val"] = txtContractVal.Text.Trim();
+                    newRow["Contract_Date"] = txtContractDate.Text.Trim(); 
+                    //pana aici
+                    
                     newRow.EndEdit();
                     phoneNumbersDataSet.PhoneNumbers.Rows.Add(newRow);
                     tblPhoneNumbersAdapter.Update(phoneNumbersDataSet.PhoneNumbers);
@@ -190,6 +277,11 @@ namespace Coroian_Daniel_Lab5
                 btnNext.IsEnabled = true;
                 txtPhoneNumber.IsEnabled = false;
                 txtSubscriber.IsEnabled = false;
+
+                //Pt tema:
+                txtContractVal.IsEnabled = false;
+                txtContractDate.IsEnabled = false;
+                //pana aici
             }
             else
                 if (action == ActionState.Edit)
@@ -200,6 +292,12 @@ namespace Coroian_Daniel_Lab5
                     editRow.BeginEdit();
                     editRow["Phonenum"] = txtPhoneNumber.Text.Trim();
                     editRow["Subscriber"] = txtSubscriber.Text.Trim();
+
+                    //Pt tema:
+                    editRow["Contract_Val"] = txtContractVal.Text.Trim();
+                    editRow["Contract_Date"] = txtContractDate.Text.Trim();
+                    //pana aici
+                    
                     editRow.EndEdit();
                     tblPhoneNumbersAdapter.Update(phoneNumbersDataSet.PhoneNumbers);
                     phoneNumbersDataSet.AcceptChanges();
@@ -219,8 +317,19 @@ namespace Coroian_Daniel_Lab5
                 btnNext.IsEnabled = true;
                 txtPhoneNumber.IsEnabled = false;
                 txtSubscriber.IsEnabled = false;
+
+                //Pt tema:
+                txtContractVal.IsEnabled = false;
+                txtContractDate.IsEnabled = false;
+                //pana aici 
+
                 txtPhoneNumber.SetBinding(TextBox.TextProperty, txtPhoneNumberBinding);
                 txtSubscriber.SetBinding(TextBox.TextProperty, txtSubscriberBinding);
+
+                //Pt tema:
+                txtContractVal.SetBinding(TextBox.TextProperty, txtContractValueBinding);
+                txtContractDate.SetBinding(TextBox.TextProperty, txtContractDateBinding);
+                //pana aici
             }
             else
                 if (action == ActionState.Delete)
@@ -247,9 +356,20 @@ namespace Coroian_Daniel_Lab5
                     btnNext.IsEnabled = true;
                     txtPhoneNumber.IsEnabled = false;
                     txtSubscriber.IsEnabled = false;
+
+                    //Pt tema:
+                    txtContractVal.IsEnabled = false;
+                    txtContractDate.IsEnabled = false;
+                    //pana aici 
+
                     txtPhoneNumber.SetBinding(TextBox.TextProperty, txtPhoneNumberBinding);
                     txtSubscriber.SetBinding(TextBox.TextProperty, txtSubscriberBinding);
-                }
+
+                    //Pt tema:
+                    txtContractVal.SetBinding(TextBox.TextProperty, txtContractValueBinding);
+                    txtContractDate.SetBinding(TextBox.TextProperty, txtContractDateBinding);
+                    //pana aici
+            }
         }
 
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
